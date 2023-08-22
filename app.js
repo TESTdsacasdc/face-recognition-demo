@@ -1,4 +1,3 @@
-
 async function setupWebcam() {
     const video = document.getElementById('video');
 
