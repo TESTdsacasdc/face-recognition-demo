@@ -2,6 +2,15 @@
 async function setupWebcam() {
     const video = document.getElementById('video');
 
+navigator.mediaDevices.getUserMedia({ video: {} })
+    .then(stream => {
+        video.srcObject = stream;
+        return video.play();
+    })
+    .catch(err => {
+        console.error("Error accessing the camera:", err);
+    });
+
     // Try to get user media
     const stream = await navigator.mediaDevices.getUserMedia({ video: {} });
     video.srcObject = stream;
